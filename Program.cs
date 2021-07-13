@@ -4,13 +4,16 @@ namespace ReverseGeo
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Logger.LogDebug("Program started. Press Enter to start coding");
 
             #region Preparation
-            GeoPerformer performer = new GeoPerformer(Settings.ApiKey);
+            GeoPerformer performer = new(Settings.ApiKey);
+            
+            var result = performer.ReverseGeocode(34.36556, 23.2343242);
 
+            Logger.LogDebug(result);
 
             // https://github.com/evancummings/google.maps.geocoding/blob/master/google.maps.geocoder/GeoCoder.cs
 

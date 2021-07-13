@@ -23,16 +23,24 @@ namespace ReverseGeo
         {
             var url = CollectShortReverseRequest(lat, lng);
 
-            string response;
-            using (var wc = new WebClient())
+            string address;
+
+            try
             {
-                response = wc.DownloadString(new Uri(url));
+                string response;
+                using (var wc = new WebClient())
+                {
+                    response = wc.DownloadString(new Uri(url));
+                }
+
+                var result = JsonConvert.DeserializeObject<GeoCodeResponse>(response);
+                address = result.Results[1].FormattedAddress;
             }
-
-            GeoCodeResponse result = JsonConvert.DeserializeObject<GeoCodeResponse>(response);
-
-            string address = result.Results[1].FormattedAddress;
-
+            catch (Exception ex)
+            {
+                address = "<not defined>";
+                Logger.LogDebug($"Error: {ex}");
+            }
             return address;
         }
 
