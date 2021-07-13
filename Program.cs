@@ -12,6 +12,8 @@ namespace ReverseGeo
             GeoPerformer performer = new GeoPerformer(Settings.ApiKey);
 
 
+            // https://github.com/evancummings/google.maps.geocoding/blob/master/google.maps.geocoder/GeoCoder.cs
+
             #endregion
 
             #region Communicate with Google
