@@ -1,22 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net.Http;
+﻿using System.Globalization;
 
-namespace ReverseGeo.GoogleGeo
+namespace ReverseGeo
 {
     public class GeoPerformer
     {
-        private readonly string _apiRequestStarting = "https://maps.googleapis.com/maps/api/geocode/json";
-        private readonly string _defaultLocationFilter = "address";
+        private readonly string _apiKey;
+
+        private readonly GlobalConst.FilterLocationTitles _defaultLocationFilter = GlobalConst.FilterLocationTitles.Address;
         private readonly string _defaultLanguage = "en";
-
-
 
         #region Public methods
 
-        public void GetAddressByCoord
+        public GeoPerformer(string apiKey)
+        {
+            _apiKey = apiKey;
+        }
 
-        private HttpClient client = new HttpClient();
+        public string ReverseGeocode()
+        {
+            return "";
+        }
+
+
+
+
 
 
         #endregion
@@ -24,39 +31,47 @@ namespace ReverseGeo.GoogleGeo
 
         #region Private methods
 
-        private string CollectReverseRequest(float lat, float lng, string resultsFilter)
+            private string CollectReverseRequest(double lat, double lng, GlobalConst.FilterResultTitles resultsFilter)
             {
                 return CollectLongReverseRequest(lat, lng, _defaultLocationFilter, resultsFilter, _defaultLanguage);
             }
 
-            private string CollectShortReverseRequest(float lat, float lng)
+            private string CollectShortReverseRequest(double lat, double lng)
             {
-                return CollectLongReverseRequest(lat, lng, "", "", "");
+                return CollectLongReverseRequest(lat, lng, GlobalConst.FilterLocationTitles.None, GlobalConst.FilterResultTitles.None, "");
             }
 
-            private string CollectLongReverseRequest(float lat, float lng, string locationsFilter, string resultsFilter, string lang)
+            private string CollectLongReverseRequest(double lat, double lng,
+                GlobalConst.FilterLocationTitles locationsFilter, GlobalConst.FilterResultTitles resultsFilter, string lang)
             {
-                // sample: https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&location_type=ROOFTOP&result_type=street_address&key=YOUR_API_KEY
-                return _apiRequestStarting + $"?latlng={lat},{lng}"
-                        + getFilterLocations(locationsFilter) + getFilterResults(resultsFilter)
-                        + getFilterLang(lang) + $"&key={Settings.apiKey}";
+                // sample: https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&location_type=ROOFTOP&result_type=street_address&key=YOURAPIKEY
+
+                var coordsPart = $"{GlobalConst.APICoordsStarter}{lat.ToString(CultureInfo.InvariantCulture)},{lng.ToString(CultureInfo.InvariantCulture)}";
+                var keyPart = $"{GlobalConst.APIKeyStarter}{Settings.ApiKey}";
+
+                return GlobalConst.APIRequestStarter
+                        + coordsPart
+                        + getFilterLocations(locationsFilter)
+                        + getFilterResults(resultsFilter)
+                        + getFilterLang(lang)
+                        + keyPart;
             }
 
-            private string getFilterLocations(string option)
+            private string getFilterLocations(GlobalConst.FilterLocationTitles option)
             {
                 return option switch
                 {
-                    "address" => "&location_type=ROOFTOP", //indicates a precise street address
+                    GlobalConst.FilterLocationTitles.Address => $"{GlobalConst.APILocationStarter}ROOFTOP", 
                     _ => "",
                 };
             }
 
-            private string getFilterResults(string option)
+            private string getFilterResults(GlobalConst.FilterResultTitles option)
             {
                 return option switch
                 {
-                    "address" => "&result_type=street_address", //indicates a precise street address
-                    "street" => "&result_type=route", // indicates a named route (such as "US 101")
+                    GlobalConst.FilterResultTitles.Address => $"{GlobalConst.APIResultStarter}street_address",
+                    GlobalConst.FilterResultTitles.Street => $"{GlobalConst.APIResultStarter}route", 
                     _ => "",
                 };
             }
@@ -67,7 +82,7 @@ namespace ReverseGeo.GoogleGeo
                 {
                     case "en":
                     case "En":
-                    case "EN": return "&language=en";
+                    case "EN": return $"{GlobalConst.APILangStarter}en";
                     default: return "";
                 }
             }

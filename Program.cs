@@ -6,10 +6,12 @@ namespace ReverseGeo
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Program started. Press Enter to start coding");
-            Console.ReadKey();
+            Logger.LogDebug("Program started. Press Enter to start coding");
 
             #region Preparation
+            GeoPerformer performer = new GeoPerformer(Settings.ApiKey);
+
+
             #endregion
 
             #region Communicate with Google
@@ -18,8 +20,7 @@ namespace ReverseGeo
             #region Show results
             #endregion 
 
-            Console.WriteLine("Program ended. Press Enter to exit");
-            Console.ReadKey();
+            Logger.LogDebug("Program ended. Press Enter to exit");
         }
     }
 }
