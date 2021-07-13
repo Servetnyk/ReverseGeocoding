@@ -1,4 +1,7 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
+using System.Net;
+using Newtonsoft.Json;
 
 namespace ReverseGeo
 {
@@ -16,9 +19,21 @@ namespace ReverseGeo
             _apiKey = apiKey;
         }
 
-        public string ReverseGeocode()
+        public string ReverseGeocode(double lat, double lng)
         {
-            return "";
+            var url = CollectShortReverseRequest(lat, lng);
+
+            string response;
+            using (var wc = new WebClient())
+            {
+                response = wc.DownloadString(new Uri(url));
+            }
+
+            GeoCodeResponse result = JsonConvert.DeserializeObject<GeoCodeResponse>(response);
+
+            string address = result.Results[1].FormattedAddress;
+
+            return address;
         }
 
 

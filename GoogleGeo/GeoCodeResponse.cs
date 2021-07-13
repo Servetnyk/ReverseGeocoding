@@ -3,7 +3,7 @@
 namespace ReverseGeo
 {
 
-    public class GoogleGeoCodeResponse
+    public class GeoCodeResponse
     {
         public string Status { get; set; }
         public Result[] Results { get; set; }
