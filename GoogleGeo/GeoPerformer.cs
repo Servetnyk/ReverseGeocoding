@@ -27,28 +27,39 @@ namespace ReverseGeo
 
             try
             {
-                string response;
+                string webResponse;
                 using (var wc = new WebClient())
                 {
-                    response = wc.DownloadString(new Uri(url));
+                    webResponse = wc.DownloadString(new Uri(url));
                 }
 
-                var result = JsonConvert.DeserializeObject<GeoCodeResponse>(response);
-                address = result.Results[1].FormattedAddress;
+                var deserializeResult = JsonConvert.DeserializeObject<Root>(webResponse);
+                switch (deserializeResult.Status)
+                {
+                    case "OK":
+                        address = deserializeResult.Results[0].FormattedAddress;
+                        break;
+                    case "ZERO_RESULTS":
+                        address = "<the request was successful but returned no results>";
+                        break;
+                    case "REQUEST_DENIED":
+                        address = "<the request was denied>";
+                        break;
+                    case "INVALID_REQUEST":
+                        address = "<invalid request or fails in query>";
+                        break;
+                    default:
+                        address = "<the request could not be processed>";
+                        break;
+                }
             }
             catch (Exception ex)
             {
-                address = "<not defined>";
+                address = "<exception, address not defined>";
                 Logger.LogDebug($"Error: {ex}");
             }
             return address;
         }
-
-
-
-
-
-
         #endregion
 
 
@@ -70,7 +81,7 @@ namespace ReverseGeo
                 // sample: https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&location_type=ROOFTOP&result_type=street_address&key=YOURAPIKEY
 
                 var coordsPart = $"{GlobalConst.APICoordsStarter}{lat.ToString(CultureInfo.InvariantCulture)},{lng.ToString(CultureInfo.InvariantCulture)}";
-                var keyPart = $"{GlobalConst.APIKeyStarter}{Settings.ApiKey}";
+                var keyPart = $"{GlobalConst.APIKeyStarter}{_apiKey}";
 
                 return GlobalConst.APIRequestStarter
                         + coordsPart

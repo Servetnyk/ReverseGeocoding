@@ -6,26 +6,26 @@ namespace ReverseGeo
     {
         static void Main()
         {
-            Logger.LogDebug("Program started. Press Enter to start coding");
+            Logger.LogDebug("App started. Press Enter to start Reverse Geocoding");
 
             #region Preparation
-            GeoPerformer performer = new(Settings.ApiKey);
-            
-            var result = performer.ReverseGeocode(34.36556, 23.2343242);
-
-            Logger.LogDebug(result);
-
-            // https://github.com/evancummings/google.maps.geocoding/blob/master/google.maps.geocoder/GeoCoder.cs
-
+                GeoPerformer performer = new(Settings.ApiKey);
             #endregion
 
             #region Communicate with Google
+
+                double lat = 49.97573488097145;
+                double lng = 16.970794198517307;
+
+                Logger.LogDebug($"The App will geocode for coordinates: {lat}, {lng}");
+                var result = performer.ReverseGeocode(lat, lng);
             #endregion
 
             #region Show results
+                Logger.LogDebug($"Your address is {result}");
             #endregion 
 
-            Logger.LogDebug("Program ended. Press Enter to exit");
+            Logger.LogDebug("App ended. Press Enter to exit");
         }
     }
 }
