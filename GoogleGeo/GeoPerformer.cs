@@ -40,12 +40,16 @@ namespace ReverseGeo
             switch (_Setting_RequestVersion)
             {
                 case GlobalConst.FilterRequestTitles.Short :
+                    Logger.LogDebug("Calling Short method");
                     uri = CollectShortReverseRequest(lat, lng);
                     break;
                 case GlobalConst.FilterRequestTitles.Long :
+                    Logger.LogDebug($"Calling Long method with settings {_Setting_LocationsFilter}, {_Setting_ResultsFilter}, {_Setting_LanguageFilter}");
                     uri = CollectLongReverseRequest(lat, lng);
                     break;
-                default: CollectReverseRequest(lat, lng, GlobalConst.FilterLocationTitles.None, GlobalConst.FilterResultTitles.None, "");
+                default: 
+                    Logger.LogDebug($"Calling default method with settings {GlobalConst.FilterLocationTitles.None}, {GlobalConst.FilterResultTitles.None} ");
+                    uri = CollectReverseRequest(lat, lng, GlobalConst.FilterLocationTitles.None, GlobalConst.FilterResultTitles.None, "");
                     break;
             }
 
