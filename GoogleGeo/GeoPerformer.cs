@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Net;
+using Microsoft.VisualBasic;
 using Newtonsoft.Json;
 
 namespace ReverseGeo
@@ -40,18 +41,19 @@ namespace ReverseGeo
             switch (_Setting_RequestVersion)
             {
                 case GlobalConst.FilterRequestTitles.Short :
-                    Logger.LogDebug("Calling Short method");
+                    // Logger.LogDebug("Calling Short method");
                     uri = CollectShortReverseRequest(lat, lng);
                     break;
                 case GlobalConst.FilterRequestTitles.Long :
-                    Logger.LogDebug($"Calling Long method with settings {_Setting_LocationsFilter}, {_Setting_ResultsFilter}, {_Setting_LanguageFilter}");
+                    // Logger.LogDebug($"Calling Long method with settings {_Setting_LocationsFilter}, {_Setting_ResultsFilter}, {_Setting_LanguageFilter}");
                     uri = CollectLongReverseRequest(lat, lng);
                     break;
-                default: 
-                    Logger.LogDebug($"Calling default method with settings {GlobalConst.FilterLocationTitles.None}, {GlobalConst.FilterResultTitles.None} ");
+                default:
+                    // Logger.LogDebug($"Calling default method with settings {GlobalConst.FilterLocationTitles.None}, {GlobalConst.FilterResultTitles.None} ");
                     uri = CollectReverseRequest(lat, lng, GlobalConst.FilterLocationTitles.None, GlobalConst.FilterResultTitles.None, "");
                     break;
             }
+            Logger.LogDebug($"Uri is {uri}");
 
             string address = "";
             try
@@ -134,11 +136,10 @@ namespace ReverseGeo
 
             private string getFilterLang(string option)
             {
-                return option.ToLower() switch
-                {
-                    "en" => $"{GlobalConst.APILangStarter}en",
-                    _ => ""
-                };
+                if (option.Length > 1 && option.Length < 6)
+                    return $"{GlobalConst.APILangStarter}{option.ToLower()}";
+                else
+                    return "";
             }
 
         #endregion
