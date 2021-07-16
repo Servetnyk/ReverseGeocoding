@@ -7,51 +7,66 @@ namespace ReverseGeo
 {
     public class GeoPerformer
     {
-        private readonly string _apiKey;
-
-        private readonly GlobalConst.FilterLocationTitles _defaultLocationFilter = GlobalConst.FilterLocationTitles.Address;
-        private readonly string _defaultLanguage = "en";
+        private readonly string _Setting_ApiKey;
+        private readonly GlobalConst.FilterResultTitles _Setting_ResultsFilter;
+        private readonly GlobalConst.FilterLocationTitles _Setting_LocationsFilter;
+        private readonly string _Setting_LanguageFilter;
+        private readonly GlobalConst.FilterRequestTitles _Setting_RequestVersion;
 
         #region Public methods
 
-        public GeoPerformer(string apiKey)
+        public GeoPerformer()
         {
-            _apiKey = apiKey;
+            _Setting_ApiKey = Settings.ApiKey;
+
+            if (!Enum.TryParse<GlobalConst.FilterResultTitles>
+                (Settings.ResultsFilter, true, out _Setting_ResultsFilter))
+                _Setting_ResultsFilter = GlobalConst.FilterResultTitles.None;
+
+            if (!Enum.TryParse<GlobalConst.FilterLocationTitles>
+                (Settings.LocationsFilter, true, out _Setting_LocationsFilter))
+                _Setting_LocationsFilter = GlobalConst.FilterLocationTitles.None;
+
+            _Setting_LanguageFilter  = Settings.LanguageFilter;
+
+            if (!Enum.TryParse<GlobalConst.FilterRequestTitles>
+                (Settings.RequestVersion, true, out _Setting_RequestVersion))
+                _Setting_RequestVersion = GlobalConst.FilterRequestTitles.Short;
         }
 
         public string ReverseGeocode(double lat, double lng)
         {
-            var url = CollectShortReverseRequest(lat, lng);
+            string uri = "";
+            switch (_Setting_RequestVersion)
+            {
+                case GlobalConst.FilterRequestTitles.Short :
+                    uri = CollectShortReverseRequest(lat, lng);
+                    break;
+                case GlobalConst.FilterRequestTitles.Long :
+                    uri = CollectLongReverseRequest(lat, lng);
+                    break;
+                default: CollectReverseRequest(lat, lng, GlobalConst.FilterLocationTitles.None, GlobalConst.FilterResultTitles.None, "");
+                    break;
+            }
 
-            string address;
-
+            string address = "";
             try
             {
                 string webResponse;
                 using (var wc = new WebClient())
                 {
-                    webResponse = wc.DownloadString(new Uri(url));
+                    webResponse = wc.DownloadString(new Uri(uri));
                 }
 
                 var deserializeResult = JsonConvert.DeserializeObject<Root>(webResponse);
-                switch (deserializeResult.Status)
+                address = deserializeResult.Status switch
                 {
-                    case "OK":
-                        address = deserializeResult.Results[0].FormattedAddress;
-                        break;
-                    case "ZERO_RESULTS":
-                        address = "<the request was successful but returned no results>";
-                        break;
-                    case "REQUEST_DENIED":
-                        address = "<the request was denied>";
-                        break;
-                    case "INVALID_REQUEST":
-                        address = "<invalid request or fails in query>";
-                        break;
-                    default:
-                        address = "<the request could not be processed>";
-                        break;
-                }
+                    "OK"              => deserializeResult.Results[0].FormattedAddress,
+                    "ZERO_RESULTS"    => "<the request was successful but returned no results>",
+                    "REQUEST_DENIED"  => "<the request was denied>",
+                    "INVALID_REQUEST" => "<invalid request or fails in query>",
+                    _                 => "<the request could not be processed>"
+                };
             }
             catch (Exception ex)
             {
@@ -65,30 +80,33 @@ namespace ReverseGeo
 
         #region Private methods
 
-            private string CollectReverseRequest(double lat, double lng, GlobalConst.FilterResultTitles resultsFilter)
-            {
-                return CollectLongReverseRequest(lat, lng, _defaultLocationFilter, resultsFilter, _defaultLanguage);
-            }
-
             private string CollectShortReverseRequest(double lat, double lng)
             {
-                return CollectLongReverseRequest(lat, lng, GlobalConst.FilterLocationTitles.None, GlobalConst.FilterResultTitles.None, "");
+                return CollectReverseRequest(lat, lng, GlobalConst.FilterLocationTitles.None, GlobalConst.FilterResultTitles.None, _Setting_LanguageFilter);
             }
 
-            private string CollectLongReverseRequest(double lat, double lng,
-                GlobalConst.FilterLocationTitles locationsFilter, GlobalConst.FilterResultTitles resultsFilter, string lang)
+            private string CollectLongReverseRequest(double lat, double lng)
             {
-                // sample: https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&location_type=ROOFTOP&result_type=street_address&key=YOURAPIKEY
+                return CollectReverseRequest(lat, lng, _Setting_LocationsFilter, _Setting_ResultsFilter, _Setting_LanguageFilter);
+            }
 
+            private string CollectReverseRequest(
+                    double lat, double lng
+                    , GlobalConst.FilterLocationTitles locationFilter
+                    , GlobalConst.FilterResultTitles resultFilter
+                    , string langFilter)
+            {
+                // sample: https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&location_type=ROOFTOP&result_type=street_address&language=en&key=YOURAPIKEY
+                
                 var coordsPart = $"{GlobalConst.APICoordsStarter}{lat.ToString(CultureInfo.InvariantCulture)},{lng.ToString(CultureInfo.InvariantCulture)}";
-                var keyPart = $"{GlobalConst.APIKeyStarter}{_apiKey}";
+                var keyPart = $"{GlobalConst.APIKeyStarter}{_Setting_ApiKey}";
 
                 return GlobalConst.APIRequestStarter
-                        + coordsPart
-                        + getFilterLocations(locationsFilter)
-                        + getFilterResults(resultsFilter)
-                        + getFilterLang(lang)
-                        + keyPart;
+                       + coordsPart
+                       + getFilterLocations(locationFilter)
+                       + getFilterResults(resultFilter)
+                       + getFilterLang(langFilter)
+                       + keyPart;
             }
 
             private string getFilterLocations(GlobalConst.FilterLocationTitles option)
@@ -112,13 +130,11 @@ namespace ReverseGeo
 
             private string getFilterLang(string option)
             {
-                switch (option)
+                return option.ToLower() switch
                 {
-                    case "en":
-                    case "En":
-                    case "EN": return $"{GlobalConst.APILangStarter}en";
-                    default: return "";
-                }
+                    "en" => $"{GlobalConst.APILangStarter}en",
+                    _ => ""
+                };
             }
 
         #endregion

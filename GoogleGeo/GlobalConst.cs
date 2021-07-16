@@ -32,16 +32,16 @@ namespace ReverseGeo
         /// <summary>
         /// Opening part Language
         /// </summary>
-        public const string APILangStarter = "&Language=";
+        public const string APILangStarter = "&language=";
 
         /// <summary>
         /// Switcher for Results filter
         /// </summary>
         public enum FilterResultTitles
         {
-            Address //indicates a precise street address
-            , Street // indicates a named route (such as "US 101")
-            , None // indicates without the filter
+            None       = 0 // indicates without the filter
+            , Address  = 1 // indicates a precise street address
+            , Street   = 2 // indicates a named route (such as "US 101")
         }
 
         /// <summary>
@@ -49,11 +49,18 @@ namespace ReverseGeo
         /// </summary>
         public enum FilterLocationTitles
         {
-            Address //indicates a precise street address
-            , None // indicates without the filter
+            None      = 0 // indicates without the filter
+            , Address = 1 // returns only the addresses for which Google has location information accurate down to street address precision
         }
 
-
+        /// <summary>
+        /// Switcher for Request version
+        /// </summary>
+        public enum FilterRequestTitles
+        {
+            Short  = 1 // without parameters
+            , Long = 2 // with parameters
+        }
 
     }
 }
