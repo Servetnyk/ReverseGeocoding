@@ -1,0 +1,461 @@
+"{
+   \"plus_code\" : {
+      \"compound_code\" : \"RPWG+H8 Kluhyno-Bashkyrivka, Kharkiv Oblast, Ukraine\",
+      \"global_code\" : \"8GXRRPWG+H8\"
+   },
+   \"results\" : [
+      {
+         \"address_components\" : [
+            {
+               \"long_name\" : \"v. Kluhyno-Bashkyrivka\",
+               \"short_name\" : \"v. Kluhyno-Bashkyrivka\",
+               \"types\" : [
+                  \"bus_station\",
+                  \"establishment\",
+                  \"point_of_interest\",
+                  \"transit_station\"
+               ]
+            },
+            {
+               \"long_name\" : \"Kluhyno-Bashkyrivka\",
+               \"short_name\" : \"Kluhyno-Bashkyrivka\",
+               \"types\" : [ \"locality\", \"political\" ]
+            },
+            {
+               \"long_name\" : \"Chuhuivs'ka city council\",
+               \"short_name\" : \"Chuhuivs'ka city council\",
+               \"types\" : [ \"administrative_area_level_3\", \"political\" ]
+            },
+            {
+               \"long_name\" : \"Kharkivs'ka oblast\",
+               \"short_name\" : \"Kharkivs'ka oblast\",
+               \"types\" : [ \"administrative_area_level_1\", \"political\" ]
+            },
+            {
+               \"long_name\" : \"Ukraine\",
+               \"short_name\" : \"UA\",
+               \"types\" : [ \"country\", \"political\" ]
+            },
+            {
+               \"long_name\" : \"63505\",
+               \"short_name\" : \"63505\",
+               \"types\" : [ \"postal_code\" ]
+            }
+         ],
+         \"formatted_address\" : \"v. Kluhyno-Bashkyrivka, Kluhyno-Bashkyrivka, Kharkivs'ka oblast, Ukraine, 63505\",
+         \"geometry\" : {
+            \"location\" : {
+               \"lat\" : 49.844176,
+               \"lng\" : 36.7255509
+            },
+            \"location_type\" : \"GEOMETRIC_CENTER\",
+            \"viewport\" : {
+               \"northeast\" : {
+                  \"lat\" : 49.84552498029149,
+                  \"lng\" : 36.7268998802915
+               },
+               \"southwest\" : {
+                  \"lat\" : 49.84282701970849,
+                  \"lng\" : 36.72420191970851
+               }
+            }
+         },
+         \"place_id\" : \"ChIJUXKwA94VJ0ERbJvNK9vhS0A\",
+         \"plus_code\" : {
+            \"compound_code\" : \"RPVG+M6 Kluhyno-Bashkyrivka, Kharkiv Oblast, Ukraine\",
+            \"global_code\" : \"8GXRRPVG+M6\"
+         },
+         \"types\" : [
+            \"bus_station\",
+            \"establishment\",
+            \"point_of_interest\",
+            \"transit_station\"
+         ]
+      },
+      {
+         \"address_components\" : [
+            {
+               \"long_name\" : \"Unnamed Road\",
+               \"short_name\" : \"Unnamed Road\",
+               \"types\" : [ \"route\" ]
+            },
+            {
+               \"long_name\" : \"Kluhyno-Bashkyrivka\",
+               \"short_name\" : \"Kluhyno-Bashkyrivka\",
+               \"types\" : [ \"locality\", \"political\" ]
+            },
+            {
+               \"long_name\" : \"Chuhuivs'ka city council\",
+               \"short_name\" : \"Chuhuivs'ka city council\",
+               \"types\" : [ \"administrative_area_level_3\", \"political\" ]
+            },
+            {
+               \"long_name\" : \"Kharkivs'ka oblast\",
+               \"short_name\" : \"Kharkivs'ka oblast\",
+               \"types\" : [ \"administrative_area_level_1\", \"political\" ]
+            },
+            {
+               \"long_name\" : \"Ukraine\",
+               \"short_name\" : \"UA\",
+               \"types\" : [ \"country\", \"political\" ]
+            },
+            {
+               \"long_name\" : \"63505\",
+               \"short_name\" : \"63505\",
+               \"types\" : [ \"postal_code\" ]
+            }
+         ],
+         \"formatted_address\" : \"Unnamed Road, Kluhyno-Bashkyrivka, Kharkivs'ka oblast, Ukraine, 63505\",
+         \"geometry\" : {
+            \"bounds\" : {
+               \"northeast\" : {
+                  \"lat\" : 49.8480159,
+                  \"lng\" : 36.7258635
+               },
+               \"southwest\" : {
+                  \"lat\" : 49.8447537,
+                  \"lng\" : 36.725264
+               }
+            },
+            \"location\" : {
+               \"lat\" : 49.84638529999999,
+               \"lng\" : 36.7255679
+            },
+            \"location_type\" : \"GEOMETRIC_CENTER\",
+            \"viewport\" : {
+               \"northeast\" : {
+                  \"lat\" : 49.8480159,
+                  \"lng\" : 36.7269127302915
+               },
+               \"southwest\" : {
+                  \"lat\" : 49.8447537,
+                  \"lng\" : 36.7242147697085
+               }
+            }
+         },
+         \"place_id\" : \"ChIJJ6dKTN4VJ0ERgBzk46yrUWc\",
+         \"types\" : [ \"route\" ]
+      },
+      {
+         \"address_components\" : [
+            {
+               \"long_name\" : \"Kluhyno-Bashkyrivka\",
+               \"short_name\" : \"Kluhyno-Bashkyrivka\",
+               \"types\" : [ \"locality\", \"political\" ]
+            },
+            {
+               \"long_name\" : \"Chuhuivs'ka city council\",
+               \"short_name\" : \"Chuhuivs'ka city council\",
+               \"types\" : [ \"administrative_area_level_3\", \"political\" ]
+            },
+            {
+               \"long_name\" : \"Kharkiv Oblast\",
+               \"short_name\" : \"Kharkiv Oblast\",
+               \"types\" : [ \"administrative_area_level_1\", \"political\" ]
+            },
+            {
+               \"long_name\" : \"Ukraine\",
+               \"short_name\" : \"UA\",
+               \"types\" : [ \"country\", \"political\" ]
+            },
+            {
+               \"long_name\" : \"63505\",
+               \"short_name\" : \"63505\",
+               \"types\" : [ \"postal_code\" ]
+            }
+         ],
+         \"formatted_address\" : \"Kluhyno-Bashkyrivka, Kharkiv Oblast, Ukraine, 63505\",
+         \"geometry\" : {
+            \"bounds\" : {
+               \"northeast\" : {
+                  \"lat\" : 49.849518,
+                  \"lng\" : 36.7429472
+               },
+               \"southwest\" : {
+                  \"lat\" : 49.826059,
+                  \"lng\" : 36.71152
+               }
+            },
+            \"location\" : {
+               \"lat\" : 49.83420539999999,
+               \"lng\" : 36.72727930000001
+            },
+            \"location_type\" : \"APPROXIMATE\",
+            \"viewport\" : {
+               \"northeast\" : {
+                  \"lat\" : 49.849518,
+                  \"lng\" : 36.7429472
+               },
+               \"southwest\" : {
+                  \"lat\" : 49.826059,
+                  \"lng\" : 36.71152
+               }
+            }
+         },
+         \"place_id\" : \"ChIJ5y-IB-YVJ0ERYmy-GqTkCQI\",
+         \"types\" : [ \"locality\", \"political\" ]
+      },
+      {
+         \"address_components\" : [
+            {
+               \"long_name\" : \"63505\",
+               \"short_name\" : \"63505\",
+               \"types\" : [ \"postal_code\" ]
+            },
+            {
+               \"long_name\" : \"Chuhuiv\",
+               \"short_name\" : \"Chuhuiv\",
+               \"types\" : [ \"locality\", \"political\" ]
+            },
+            {
+               \"long_name\" : \"Chuhuivs'ka city council\",
+               \"short_name\" : \"Chuhuivs'ka city council\",
+               \"types\" : [ \"administrative_area_level_3\", \"political\" ]
+            },
+            {
+               \"long_name\" : \"Kharkiv Oblast\",
+               \"short_name\" : \"Kharkiv Oblast\",
+               \"types\" : [ \"administrative_area_level_1\", \"political\" ]
+            },
+            {
+               \"long_name\" : \"Ukraine\",
+               \"short_name\" : \"UA\",
+               \"types\" : [ \"country\", \"political\" ]
+            }
+         ],
+         \"formatted_address\" : \"Chuhuiv, Kharkiv Oblast, Ukraine, 63505\",
+         \"geometry\" : {
+            \"bounds\" : {
+               \"northeast\" : {
+                  \"lat\" : 49.857341,
+                  \"lng\" : 36.7429472
+               },
+               \"southwest\" : {
+                  \"lat\" : 49.81323399999999,
+                  \"lng\" : 36.6433542
+               }
+            },
+            \"location\" : {
+               \"lat\" : 49.8311581,
+               \"lng\" : 36.6953566
+            },
+            \"location_type\" : \"APPROXIMATE\",
+            \"viewport\" : {
+               \"northeast\" : {
+                  \"lat\" : 49.857341,
+                  \"lng\" : 36.7429472
+               },
+               \"southwest\" : {
+                  \"lat\" : 49.81323399999999,
+                  \"lng\" : 36.6433542
+               }
+            }
+         },
+         \"place_id\" : \"ChIJQ4vXNbgVJ0ER-M-RM-HuFk4\",
+         \"postcode_localities\" : [ \"Chuhuiv\", \"Kluhyno-Bashkyrivka\" ],
+         \"types\" : [ \"postal_code\" ]
+      },
+      {
+         \"address_components\" : [
+            {
+               \"long_name\" : \"Chuhuivs'ka city council\",
+               \"short_name\" : \"Chuhuivs'ka city council\",
+               \"types\" : [ \"administrative_area_level_3\", \"political\" ]
+            },
+            {
+               \"long_name\" : \"Kharkiv Oblast\",
+               \"short_name\" : \"Kharkiv Oblast\",
+               \"types\" : [ \"administrative_area_level_1\", \"political\" ]
+            },
+            {
+               \"long_name\" : \"Ukraine\",
+               \"short_name\" : \"UA\",
+               \"types\" : [ \"country\", \"political\" ]
+            }
+         ],
+         \"formatted_address\" : \"Chuhuivs'ka city council, Kharkiv Oblast, Ukraine\",
+         \"geometry\" : {
+            \"bounds\" : {
+               \"northeast\" : {
+                  \"lat\" : 49.891036,
+                  \"lng\" : 36.8815411
+               },
+               \"southwest\" : {
+                  \"lat\" : 49.786894,
+                  \"lng\" : 36.598591
+               }
+            },
+            \"location\" : {
+               \"lat\" : 49.8348135,
+               \"lng\" : 36.7336648
+            },
+            \"location_type\" : \"APPROXIMATE\",
+            \"viewport\" : {
+               \"northeast\" : {
+                  \"lat\" : 49.891036,
+                  \"lng\" : 36.8815411
+               },
+               \"southwest\" : {
+                  \"lat\" : 49.786894,
+                  \"lng\" : 36.598591
+               }
+            }
+         },
+         \"place_id\" : \"ChIJce4krfwVJ0ERjupoqZn75jY\",
+         \"types\" : [ \"administrative_area_level_3\", \"political\" ]
+      },
+      {
+         \"address_components\" : [
+            {
+               \"long_name\" : \"Kharkiv Oblast\",
+               \"short_name\" : \"Kharkiv Oblast\",
+               \"types\" : [ \"administrative_area_level_1\", \"political\" ]
+            },
+            {
+               \"long_name\" : \"Ukraine\",
+               \"short_name\" : \"UA\",
+               \"types\" : [ \"country\", \"political\" ]
+            }
+         ],
+         \"formatted_address\" : \"Kharkiv Oblast, Ukraine\",
+         \"geometry\" : {
+            \"bounds\" : {
+               \"northeast\" : {
+                  \"lat\" : 50.459388,
+                  \"lng\" : 38.09530609999999
+               },
+               \"southwest\" : {
+                  \"lat\" : 48.531375,
+                  \"lng\" : 34.8563339
+               }
+            },
+            \"location\" : {
+               \"lat\" : 49.9935,
+               \"lng\" : 36.230383
+            },
+            \"location_type\" : \"APPROXIMATE\",
+            \"viewport\" : {
+               \"northeast\" : {
+                  \"lat\" : 50.459388,
+                  \"lng\" : 38.09530609999999
+               },
+               \"southwest\" : {
+                  \"lat\" : 48.531375,
+                  \"lng\" : 34.8563339
+               }
+            }
+         },
+         \"place_id\" : \"ChIJAfZeLutYJ0ERoEH2iIQGAQE\",
+         \"types\" : [ \"administrative_area_level_1\", \"political\" ]
+      },
+      {
+         \"address_components\" : [
+            {
+               \"long_name\" : \"Ukraine\",
+               \"short_name\" : \"UA\",
+               \"types\" : [ \"country\", \"political\" ]
+            }
+         ],
+         \"formatted_address\" : \"Ukraine\",
+         \"geometry\" : {
+            \"bounds\" : {
+               \"northeast\" : {
+                  \"lat\" : 52.3793713,
+                  \"lng\" : 40.2204802
+               },
+               \"southwest\" : {
+                  \"lat\" : 44.2924,
+                  \"lng\" : 22.137159
+               }
+            },
+            \"location\" : {
+               \"lat\" : 48.379433,
+               \"lng\" : 31.1655799
+            },
+            \"location_type\" : \"APPROXIMATE\",
+            \"viewport\" : {
+               \"northeast\" : {
+                  \"lat\" : 52.3793713,
+                  \"lng\" : 40.2204802
+               },
+               \"southwest\" : {
+                  \"lat\" : 44.2924,
+                  \"lng\" : 22.137159
+               }
+            }
+         },
+         \"place_id\" : \"ChIJjw5wVMHZ0UAREED2iIQGAQA\",
+         \"types\" : [ \"country\", \"political\" ]
+      },
+      {
+         \"address_components\" : [
+            {
+               \"long_name\" : \"RPWG+H8\",
+               \"short_name\" : \"RPWG+H8\",
+               \"types\" : [ \"plus_code\" ]
+            },
+            {
+               \"long_name\" : \"Kluhyno-Bashkyrivka\",
+               \"short_name\" : \"Kluhyno-Bashkyrivka\",
+               \"types\" : [ \"locality\", \"political\" ]
+            },
+            {
+               \"long_name\" : \"Chuhuivs'ka city council\",
+               \"short_name\" : \"Chuhuivs'ka city council\",
+               \"types\" : [ \"administrative_area_level_3\", \"political\" ]
+            },
+            {
+               \"long_name\" : \"Kharkiv Oblast\",
+               \"short_name\" : \"Kharkiv Oblast\",
+               \"types\" : [ \"administrative_area_level_1\", \"political\" ]
+            },
+            {
+               \"long_name\" : \"Ukraine\",
+               \"short_name\" : \"UA\",
+               \"types\" : [ \"country\", \"political\" ]
+            },
+            {
+               \"long_name\" : \"63505\",
+               \"short_name\" : \"63505\",
+               \"types\" : [ \"postal_code\" ]
+            }
+         ],
+         \"formatted_address\" : \"RPWG+H8 Kluhyno-Bashkyrivka, Kharkiv Oblast, Ukraine\",
+         \"geometry\" : {
+            \"bounds\" : {
+               \"northeast\" : {
+                  \"lat\" : 49.8465,
+                  \"lng\" : 36.725875
+               },
+               \"southwest\" : {
+                  \"lat\" : 49.84637499999999,
+                  \"lng\" : 36.72575
+               }
+            },
+            \"location\" : {
+               \"lat\" : 49.846426,
+               \"lng\" : 36.725852
+            },
+            \"location_type\" : \"ROOFTOP\",
+            \"viewport\" : {
+               \"northeast\" : {
+                  \"lat\" : 49.8477864802915,
+                  \"lng\" : 36.7271614802915
+               },
+               \"southwest\" : {
+                  \"lat\" : 49.8450885197085,
+                  \"lng\" : 36.7244635197085
+               }
+            }
+         },
+         \"place_id\" : \"GhIJ9z3qr1fsSEARO97kt-hcQkA\",
+         \"plus_code\" : {
+            \"compound_code\" : \"RPWG+H8 Kluhyno-Bashkyrivka, Kharkiv Oblast, Ukraine\",
+            \"global_code\" : \"8GXRRPWG+H8\"
+         },
+         \"types\" : [ \"plus_code\" ]
+      }
+   ],
+   \"status\" : \"OK\"
+}
+"
